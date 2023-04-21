@@ -1,0 +1,33 @@
+/* eslint-disable no-undef */
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"
+);
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging-compat.js"
+);
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA0a9lpR53oUWASZj5ILIbQdo6BoTglSH0",
+  authDomain: "expensify-e6d16.firebaseapp.com",
+  databaseURL: "https://expensify-e6d16.firebaseio.com",
+  projectId: "expensify-e6d16",
+  storageBucket: "expensify-e6d16.appspot.com",
+  messagingSenderId: "372350727203",
+  appId: "1:372350727203:web:7d3fb47af8c37da936ad96",
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage(function (payload) {
+  console.log("Received background message ", payload);
+  // Customize notification here
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+  };
+
+  // eslint-disable-next-line no-restricted-globals
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
