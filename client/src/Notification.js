@@ -10,7 +10,7 @@ const Notification = () => {
     if (notification?.title) {
       console.log("notification", notification);
     }
-  }, [notification]);
+  }, []);
 
   requestForToken();
 

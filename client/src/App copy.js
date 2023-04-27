@@ -34,7 +34,7 @@ function App() {
       console.log("Notification permission granted.");
       getToken(messaging, {
         vapidKey:
-          "BMoRJ_9V-gRyCruqkEjcWFgrcNP3ttWEqchciMq-a7s0ps4vR8XPMYgqncVXkY_hpIHF_FKL4ToSPJ1-WL0FJw8",
+          "fdMkLcQQxFZe7XVwuJ9AFD:APA91bGAfjeAd1dhhfWwhsx6j4Ik_lGXGGepmypm4t6fTTXLt7Tnb2rMkixUVXzxnd85_OuH1urGP6IRlIn-FpmxXAnO1Q_Q_cF2mYlLtmvzHiX0_u4mV7o_vnwhxtWaWe3aaW5VzEv9",
       })
         .then((currentToken) => {
           if (currentToken) {

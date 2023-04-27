@@ -16,6 +16,9 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "gcm_sender_id": "372350727203"
     }
   ],
   "start_url": ".",
@@ -23,3 +26,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+
