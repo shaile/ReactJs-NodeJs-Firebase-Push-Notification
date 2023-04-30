@@ -16,59 +16,6 @@ admin.initializeApp({
   databaseURL: "https://expensify-e6d16.firebaseio.com",
 });
 
-async function doPostRequest(req, res) {
-  // req.body.registrationToken;
-
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization:
-      "bearer BMoRJ_9V-gRyCruqkEjcWFgrcNP3ttWEqchciMq-a7s0ps4vR8XPMYgqncVXkY_hpIHF_FKL4ToSPJ1-WL0FJw8",
-  };
-
-  const data = {
-    message: {
-      token: registrationToken,
-      notification: {
-        title: "Background Message Title",
-        body: "Background message body",
-      },
-      webpush: {
-        fcm_options: {
-          link: "http://localhost:3002/",
-        },
-      },
-    },
-  };
-  try {
-    const response = await axios.post(
-      "https://fcm.googleapis.com/v1/projects/expensify-e6d16/messages:send",
-      {
-        notification: {
-          title: "Background Message Title sound",
-          body: "Background message body sound",
-          sound: "default",
-        },
-        token: registrationToken,
-        priority: "high",
-        // webpush: {
-        //   fcm_options: {
-        //     link: "http://localhost:3002/",
-        //   },
-        // },
-      },
-
-      {
-        headers: headers,
-      }
-    );
-    console.log("Successfully sent message:", response);
-    res.status(200).send("Notification sent");
-  } catch (error) {
-    console.error("Error sending message:", error);
-    res.status(500).send("Error sending notification");
-  }
-}
-
 // app.post("/sendNotification", async (req, res) => {
 //   doPostRequest(req, res);
 //   // console.log("req", req.body);
